@@ -124,4 +124,5 @@ module.exports = {
   moderatePost,
   generateFaceoffs,
   calculateResultsForTheWeek,
+  resetGameForTesting,
 };
