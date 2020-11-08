@@ -267,6 +267,6 @@ router.put('/submissions/:id', (req, res) => {
  */
 router.put('/reset', (req, res) => {
   ops.update(res, Mod.resetGameForTesting, 'Reset');
-})
+});
 
 module.exports = router;

@@ -143,8 +143,8 @@ module.exports = (flag) => {
 
           expect(res.status).toBe(204);
           expect(res.body).toBeNull();
-        })
-      })
+        });
+      });
     }
   });
 };

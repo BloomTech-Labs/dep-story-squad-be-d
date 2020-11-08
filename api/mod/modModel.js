@@ -119,7 +119,7 @@ const resetGameForTesting = async () => {
     public."Members" 
     CASCADE`
   );
-}
+};
 
 module.exports = {
   clusterGeneration,
