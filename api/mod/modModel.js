@@ -98,6 +98,24 @@ const calculateResultsForTheWeek = () => {
   });
 };
 
+/**
+ * Truncates tables in order to reset the game state.
+ * This should be run for testing purposes only.
+ * It will delete all rows in the following tables:
+ * 1. Votes
+ * 2. Teams
+ * 3. Points
+ * 4. Faceoffs
+ * 5. Squads
+ */
+const resetGameForTesting = () => {
+  db('Votes').truncate();
+  db('Teams').truncate();
+  db('Points').truncate();
+  db('Faceoffs').truncate();
+  db('Squads').truncate();
+}
+
 module.exports = {
   clusterGeneration,
   getCohorts,
