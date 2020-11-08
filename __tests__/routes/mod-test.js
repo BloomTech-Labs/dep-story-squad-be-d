@@ -136,6 +136,15 @@ module.exports = (flag) => {
           expect(res.body[1].Status).toBe('APPROVED');
         });
       });
+
+      describe('PUT /mod/reset', () => {
+        it('should return a 204 on success', async () => {
+          const res = await request(server).put('/mod/reset');
+
+          expect(res.status).toBe(204);
+          expect(res.body).toBeNull();
+        })
+      })
     }
   });
 };
