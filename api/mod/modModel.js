@@ -99,21 +99,26 @@ const calculateResultsForTheWeek = () => {
 };
 
 /**
- * Truncates tables in order to reset the game state.
+ * Truncates tables in order to reset the game state. Keeps all submissions intact.
  * This should be run for testing purposes only.
- * It will delete all rows in the following tables:
+ * It will truncate all rows in the following tables:
  * 1. Votes
  * 2. Teams
  * 3. Points
  * 4. Faceoffs
  * 5. Squads
  */
-const resetGameForTesting = () => {
-  db('Votes').truncate();
-  db('Teams').truncate();
-  db('Points').truncate();
-  db('Faceoffs').truncate();
-  db('Squads').truncate();
+const resetGameForTesting = async () => {
+  return db.raw(
+    `TRUNCATE 
+    public."Votes", 
+    public."Teams", 
+    public."Points", 
+    public."Faceoffs", 
+    public."Squads", 
+    public."Members" 
+    CASCADE`
+  );
 }
 
 module.exports = {
