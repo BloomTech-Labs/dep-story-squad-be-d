@@ -252,4 +252,21 @@ router.put('/submissions/:id', (req, res) => {
   ops.update(res, Mod.moderatePost, 'Submission', id, changes);
 });
 
+/**
+ * @swagger
+ * /mod/reset:
+ *  put:
+ *    summary: Resets the game state to before cluster generation. Should be used for testing only.
+ *    tags:
+ *      - Moderation
+ *    responses:
+ *      200:
+ *        $ref: '#/components/responses/EmptySuccess'
+ *      500:
+ *        $ref: '#/components/responses/DatabaseError'
+ */
+router.put('/reset', (req, res) => {
+  ops.update(res, Mod.resetGameForTesting, 'Reset');
+});
+
 module.exports = router;
